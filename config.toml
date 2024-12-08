@@ -1,0 +1,85 @@
+baseURL = "https://varendraaa.github.io/portfolio"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+languageCode = "en"
+
+pygmentsStyle = "monokai"
+theme = "gokarna"
+title = "Varendra's Dev Corner"
+
+[params] 
+
+  accentColor = "#2350CC"
+  avatarAltText = "avatar"
+  avatarSize = "size-l"
+  avatarURL = "/portfolio/images/profile.png"
+  # description = "Hiya, I'm Varendra, a new software developer focused on game and app development."
+
+  showPostsOnHomePage = true
+  numberPostsOnHomePage = 4
+
+
+[menu]
+
+  [[menu.main]]
+    name = "Home"
+    pre = "<span data-feather='home'></span>"
+    url = "/"
+    weight = 1
+
+
+  [[menu.main]]
+    # Display name
+    name = "Posts"
+
+    pre = "<span data-feather='package'></span>"
+
+    # Relative URL slug (appended to baseURL)
+    url = "/posts/"
+
+    # Lower weights are listed first in the menu (leftmost); higher weights are
+    # listed last in the menu (rightmost)
+    weight = 2
+
+  [[menu.main]]
+    name = "Projects"
+    pre = "<span data-feather='code'></span>"
+    url = "/projects/"
+    weight = 3
+
+ [[menu.main]]
+    name = "CV"
+    pre = "<span data-feather='code'></span>"
+    url = "/cv/"
+    weight = 4
+    
+  [[menu.main]]
+    # Unique identifiers are required for menu entries without a name property,
+    # or for menu entries which re-use a name
+    identifier = "github"
+
+    # Absolute URL to external resource
+    url = "https://github.com/varendraaa"
+    weight = 5
+    
+    # Surround the menu entry (or name) with HTML content, such as Feather
+    # icons: https://feathericons.com
+    pre = "<span data-feather='github'></span>"
+    post = ""
+
+  [[menu.main]]
+    # Unique identifiers are required for menu entries without a name property,
+    # or for menu entries which re-use a name
+    identifier = "linkedin"
+
+    # Absolute URL to external resource
+    url = "https://www.linkedin.com/in/varendrasaith/"
+    weight = 6
+    
+    # Surround the menu entry (or name) with HTML content, such as Feather
+    # icons: https://feathericons.com
+    pre = "<span data-feather='linkedin'></span>"
+    post = ""
+
+[minify]
+    minifyOutput = false
