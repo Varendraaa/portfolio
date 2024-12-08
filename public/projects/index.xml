@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Varendra&#39;s Dev Corner</title>
-    <link>http://localhost:1313/portfolio/projects/</link>
+    <link>https://varendraaa.github.io/portfolio/projects/</link>
     <description>Recent content in Projects on Varendra&#39;s Dev Corner</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/portfolio/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://varendraaa.github.io/portfolio/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/portfolio/projects/game-engine/</link>
+      <link>https://varendraaa.github.io/portfolio/projects/game-engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/projects/game-engine/</guid>
+      <guid>https://varendraaa.github.io/portfolio/projects/game-engine/</guid>
       <description></description>
     </item>
     <item>
       <title>API Mashup</title>
-      <link>http://localhost:1313/portfolio/projects/api-mashup/</link>
+      <link>https://varendraaa.github.io/portfolio/projects/api-mashup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/projects/api-mashup/</guid>
+      <guid>https://varendraaa.github.io/portfolio/projects/api-mashup/</guid>
       <description>&lt;p&gt;*** A web app that combines two APIs to make a useful application ***&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;[See the code here](github link)&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;&#xA;&lt;p&gt;This was my second assignment for my Web Development Module at the University of Dundee.&#xA;It&amp;rsquo;s written using HTML, CSS and Javascript, with support from JQuery and Material Design Bootstrap.&#xA;It was my first time working with Javascript and the JSON notation, and was developed over a period of 4 weeks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pneumonia Detection</title>
-      <link>http://localhost:1313/portfolio/projects/pneumonia-detection/</link>
+      <link>https://varendraaa.github.io/portfolio/projects/pneumonia-detection/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/projects/pneumonia-detection/</guid>
+      <guid>https://varendraaa.github.io/portfolio/projects/pneumonia-detection/</guid>
       <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;&#xA;&lt;p&gt;Hello world&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;description&#34;&gt;image&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
