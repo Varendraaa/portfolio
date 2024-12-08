@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gokarna on Varendra&#39;s Dev Corner</title>
-    <link>https://varendraaa.github.io/portfolio/tags/gokarna/</link>
+    <link>http://localhost:1313/portfolio/tags/gokarna/</link>
     <description>Recent content in Gokarna on Varendra&#39;s Dev Corner</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://varendraaa.github.io/portfolio/tags/gokarna/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/portfolio/tags/gokarna/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome to My Website</title>
-      <link>https://varendraaa.github.io/portfolio/posts/welcome-to-my-website/</link>
+      <link>http://localhost:1313/portfolio/posts/welcome-to-my-website/</link>
       <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>https://varendraaa.github.io/portfolio/posts/welcome-to-my-website/</guid>
+      <guid>http://localhost:1313/portfolio/posts/welcome-to-my-website/</guid>
       <description>&lt;p&gt;&lt;em&gt;I made this website using Hugo, specifically the Gokarna Theme.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;hi-there&#34;&gt;Hi There!&lt;/h1&gt;&#xA;&lt;p&gt;I made this website primarily as a quick way to act as my developer portfolio, as I only know the basics of web developement (HTML, CSS and a bit of JS), and I&amp;rsquo;d want to spend a decent amount of time actually getting good at it before I decide to invest into making a completely self developed portfolio.&lt;/p&gt;</description>
     </item>
   </channel>
