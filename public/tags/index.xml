@@ -29,5 +29,26 @@
       <guid>http://localhost:1313/portfolio/tags/markdown/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Keras</title>
+      <link>http://localhost:1313/portfolio/tags/keras/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio/tags/keras/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>http://localhost:1313/portfolio/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/portfolio/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio/tags/python/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

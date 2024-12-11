@@ -26,7 +26,7 @@
       <link>http://localhost:1313/portfolio/projects/pneumonia-detection/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/portfolio/projects/pneumonia-detection/</guid>
-      <description>&lt;h1 id=&#34;projects&#34;&gt;Projects&lt;/h1&gt;&#xA;&lt;p&gt;Hello world&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;&#xA;&lt;p&gt;This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It evaluates the performance of the neural network architectures across binary and multi-class classification tasks, showcasing the potential of machine learning in healthcare applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://medmnist.github.io/&#34;&gt;MedMNIST&lt;/a&gt; is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen to evaluate both binary classification and multiclassification task. Each dataset was evaluated using three different networks:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

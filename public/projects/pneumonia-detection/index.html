@@ -18,22 +18,19 @@
 
     
     <title>Pneumonia Detection</title>
-    <meta name="description" content="Projects Hello world
-">
-    <meta name="keywords" content=''>
+    <meta name="description" content="About This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It …">
+    <meta name="keywords" content='Machine Learning, Keras, Python'>
 
     <meta property="og:url" content="http://localhost:1313/portfolio/projects/pneumonia-detection/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Pneumonia Detection">
-    <meta property="og:description" content="Projects Hello world
-">
+    <meta property="og:description" content="About This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It …">
     <meta property="og:image" content="http://localhost:1313/portfolio/images/profile.png">
     <meta property="og:image:secure_url" content="http://localhost:1313/portfolio/images/profile.png">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pneumonia Detection">
-    <meta name="twitter:description" content="Projects Hello world
-">
+    <meta name="twitter:description" content="About This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It …">
     <meta property="twitter:domain" content="http://localhost:1313/portfolio/projects/pneumonia-detection/">
     <meta property="twitter:url" content="http://localhost:1313/portfolio/projects/pneumonia-detection/">
     <meta name="twitter:image" content="http://localhost:1313/portfolio/images/profile.png">
@@ -165,14 +162,212 @@
     </div>
 
     <div class="post-content">
-        <h1 id="projects">Projects</h1>
-<p>Hello world</p>
+        <h1 id="about">About</h1>
+<p>This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It evaluates the performance of the neural network architectures across binary and multi-class classification tasks, showcasing the potential of machine learning in healthcare applications.</p>
+<h2 id="background">Background</h2>
+<p><a href="https://medmnist.github.io/">MedMNIST</a> is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen to evaluate both binary classification and multiclassification task. Each dataset was evaluated using three different networks:</p>
+<ol>
+<li><strong>Sample ConvNet</strong> : A baseline convolutional neural network provided as part of the coursework.</li>
+<li><strong>Dense-Only Network</strong> : A fully connected network without convolutional layers but with comparable total parameters to the baseline ConvNet.</li>
+<li><strong>Custom ConvNet</strong> : A self-designed deep neural network incorporating advanced design principles, regularization methods, and data augmentation to optimize performance.</li>
+</ol>
+<h2 id="setup">Setup</h2>
+<p>The networks were built using Google Colab for a couple reasons:</p>
+<ol>
+<li>The cloud platform meant that there were no incompatibilities between different framework versions.</li>
+<li>Testing and adjusting network models in the cloud was far easier and didn&rsquo;t require dedicated GPUs.</li>
+</ol>
+<p>The two chosen datasets were:</p>
+<ol>
+<li>PneumoniaMNIST for binary classification (presence or absence of pneumonia).</li>
+<li>OrganCMNIST for multi-class classification (predicting organ types).</li>
+</ol>
+<h2 id="development">Development</h2>
+<h3 id="baseline-convnet">Baseline Convnet</h3>
+<p>First, I looked at the sample covnet provided by the University, which resulted in the following parameter setup:</p>
+<ul>
+<li>Total params: 18379</li>
+<li>Trainable params: 18379</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>from keras import layers
+</span></span><span style="display:flex;"><span>from keras import models
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model_1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">models.Sequential</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">keras.layers.Conv2D</span>(<span style="color:#ae81ff">32</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">keras.layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">keras.layers.Conv2D</span>(<span style="color:#ae81ff">32</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">keras.layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.Flatten</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">11</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;softmax&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.summary</span>()
+</span></span></code></pre></div><p>The model was compiled using stochastic gradient descent (SGD) with a learning rate of 0.001 and evaluated using categorical cross-entropy loss.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span><span style="color:#a6e22e">model_1.compile</span>(optimizer<span style="color:#f92672">=</span><span style="color:#a6e22e">keras.optimizers.SGD</span>(learning_rate<span style="color:#f92672">=</span><span style="color:#ae81ff">0.001</span>),
+</span></span><span style="display:flex;"><span>              loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;categorical_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>              metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span></code></pre></div><p>// Add  Results  here</p>
+<h3 id="dense-network-without-convolutions">Dense Network (Without Convolutions)</h3>
+<p>To test the importance of spatial feature extraction, a dense-only network was implemented. This network replaced convolutional layers with fully connected layers, while keeping the total parameter count similar to the ConvNet.</p>
+<p>Architecture Details:</p>
+<ol>
+<li>Input images were flattened into 1D arrays.</li>
+<li>Three fully connected layers with 128, 64, and 32 neurons, respectively.</li>
+<li>Dropout layers were added to prevent overfitting.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>from keras import layers, models
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model_dense <span style="color:#f92672">=</span> <span style="color:#a6e22e">models.Sequential</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Flatten</span>(input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">1</span>)))  <span style="color:#75715e"># Flattening the image</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.3</span>))  <span style="color:#75715e"># Regularization</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.3</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">1</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sigmoid&#39;</span>))  <span style="color:#75715e"># Sigmoid activation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.compile</span>(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>                    loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>                    metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span></code></pre></div><p>Challenges Observed:</p>
+<p>Dense networks struggled to capture spatial patterns in the images, resulting in lower performance compared to ConvNets.
+Dropout regularization improved generalization but did not fully bridge the performance gap.</p>
+<p>Key Insights:
+Dense layers alone lack the ability to identify localized features, highlighting the importance of convolutions for tasks involving image data.</p>
+<h3 id="custom-convnet">Custom Convnet</h3>
+<p>The custom ConvNet incorporated the following enhancements:</p>
+<ol>
+<li>Depth and Complexity: Increased convolutional layers to capture more detailed features.</li>
+<li>Regularization: Added dropout layers after each dense layer to prevent overfitting.</li>
+<li>Batch Normalization: Improved training stability.</li>
+<li>Data Augmentation: Improved dataset diversity with transformations like rotation, flipping, and zoom.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>from keras.preprocessing.image import ImageDataGenerator
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Data augmentation</span>
+</span></span><span style="display:flex;"><span>datagen <span style="color:#f92672">=</span> <span style="color:#a6e22e">ImageDataGenerator</span>(rotation_range<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, width_shift_range<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, height_shift_range<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, horizontal_flip<span style="color:#f92672">=</span>True)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Custom ConvNet</span>
+</span></span><span style="display:flex;"><span>model_custom <span style="color:#f92672">=</span> <span style="color:#a6e22e">models.Sequential</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">32</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.BatchNormalization</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.3</span>))  <span style="color:#75715e"># Regularization</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">64</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.BatchNormalization</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Flatten</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.5</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">1</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sigmoid&#39;</span>))  <span style="color:#75715e"># Sigmoid activation</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.compile</span>(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>                     loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>                     metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span></code></pre></div><p>Results:
+The custom ConvNet achieved the best performance among the three models, with significantly improved accuracy and generalization.</p>
+<p>Key Design Takeaways:</p>
+<p>Batch normalization and dropout worked synergistically to stabilize training and reduce overfitting.
+Data augmentation allowed the model to learn more robust representations.</p>
+<h2 id="part-2-multi-class-classification-of-organ-images">Part 2: Multi-Class classification of Organ Images</h2>
+<h3 id="baseline-convnet-1">Baseline ConvNet</h3>
+<p>The baseline ConvNet, adapted for multi-class classification, consisted of two convolutional layers followed by a softmax-activated dense output layer for probability distributions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>model_1 <span style="color:#f92672">=</span> <span style="color:#a6e22e">models.Sequential</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">32</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">32</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.Flatten</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">11</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;softmax&#39;</span>))  <span style="color:#75715e"># Softmax for multi-class</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_1.compile</span>(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>                loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;categorical_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>                metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span></code></pre></div><h3 id="dense-network-without-convolutions-1">Dense Network (Without Convolutions)</h3>
+<p>For multi-class classification, the dense network used three fully connected layers with dropout for regularization.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model_dense <span style="color:#f92672">=</span> <span style="color:#a6e22e">models.Sequential</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Flatten</span>(input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.3</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.3</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">11</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;softmax&#39;</span>))  <span style="color:#75715e"># 11 classes</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_dense.compile</span>(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>                    loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;categorical_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>                    metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span></code></pre></div><h3 id="custom-convnet-1">Custom ConvNet</h3>
+<p>The custom ConvNet was enhanced for multi-class classification by:</p>
+<p>Increased Depth: Added a third convolutional layer for deeper feature extraction.
+Regularization: Introduced higher dropout rates and learning rate scheduling</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-s" data-lang="s"><span style="display:flex;"><span>model_custom <span style="color:#f92672">=</span> <span style="color:#a6e22e">models.Sequential</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">32</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>, input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.BatchNormalization</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.3</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">64</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.BatchNormalization</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Conv2D</span>(<span style="color:#ae81ff">128</span>, (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>), activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.BatchNormalization</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.MaxPooling2D</span>((<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.5</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Flatten</span>())
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">256</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dropout</span>(<span style="color:#ae81ff">0.5</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.add</span>(<span style="color:#a6e22e">layers.Dense</span>(<span style="color:#ae81ff">11</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;softmax&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">model_custom.compile</span>(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>,
+</span></span><span style="display:flex;"><span>                     loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;categorical_crossentropy&#39;</span>,
+</span></span><span style="display:flex;"><span>                     metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span></code></pre></div><p>Key Insights</p>
+<ol>
+<li>ConvNets Perform Better: Convolutional layers consistently outperformed dense-only networks in image-based tasks.</li>
+<li>Regularization Works: Dropout, batch normalization, and data augmentation reduced overfitting.</li>
+<li>Custom Architectures Excel: Tailored designs provided the best performance across both tasks.</li>
+</ol>
 
     </div>
     
     
 </div>
 
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#development">Development</a>
+      <ul>
+        <li><a href="#baseline-convnet">Baseline Convnet</a></li>
+        <li><a href="#dense-network-without-convolutions">Dense Network (Without Convolutions)</a></li>
+        <li><a href="#custom-convnet">Custom Convnet</a></li>
+      </ul>
+    </li>
+    <li><a href="#part-2-multi-class-classification-of-organ-images">Part 2: Multi-Class classification of Organ Images</a>
+      <ul>
+        <li><a href="#baseline-convnet-1">Baseline ConvNet</a></li>
+        <li><a href="#dense-network-without-convolutions-1">Dense Network (Without Convolutions)</a></li>
+        <li><a href="#custom-convnet-1">Custom ConvNet</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </nav>
+</aside>
 
 
 
