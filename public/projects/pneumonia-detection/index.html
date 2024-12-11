@@ -165,7 +165,8 @@
         <h1 id="about">About</h1>
 <p>This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It evaluates the performance of the neural network architectures across binary and multi-class classification tasks, showcasing the potential of machine learning in healthcare applications.</p>
 <h2 id="background">Background</h2>
-<p><a href="https://medmnist.github.io/">MedMNIST</a> is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen to evaluate both binary classification and multiclassification task. Each dataset was evaluated using three different networks:</p>
+<p><a href="https://medmnist.github.io/">MedMNIST</a> is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen, one for binary classification and one for multi-class classification.
+Each dataset was evaluated using three different networks:</p>
 <ol>
 <li><strong>Sample ConvNet</strong> : A baseline convolutional neural network provided as part of the coursework.</li>
 <li><strong>Dense-Only Network</strong> : A fully connected network without convolutional layers but with comparable total parameters to the baseline ConvNet.</li>
@@ -182,7 +183,7 @@
 <li>PneumoniaMNIST for binary classification (presence or absence of pneumonia).</li>
 <li>OrganCMNIST for multi-class classification (predicting organ types).</li>
 </ol>
-<h2 id="development">Development</h2>
+<h2 id="part-1-binary-classification-of-pneumonia-images">Part 1: Binary Classification of Pneumonia Images</h2>
 <h3 id="baseline-convnet">Baseline Convnet</h3>
 <p>First, I looked at the sample covnet provided by the University, which resulted in the following parameter setup:</p>
 <ul>
@@ -350,7 +351,7 @@ Regularization: Introduced higher dropout rates and learning rate scheduling</p>
   <ul>
     <li><a href="#background">Background</a></li>
     <li><a href="#setup">Setup</a></li>
-    <li><a href="#development">Development</a>
+    <li><a href="#part-1-binary-classification-of-pneumonia-images">Part 1: Binary Classification of Pneumonia Images</a>
       <ul>
         <li><a href="#baseline-convnet">Baseline Convnet</a></li>
         <li><a href="#dense-network-without-convolutions">Dense Network (Without Convolutions)</a></li>

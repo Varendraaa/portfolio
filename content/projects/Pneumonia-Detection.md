@@ -12,7 +12,8 @@ This project, undertaken as part of Machine Learning Module at the University of
 
 ## Background
 
-[MedMNIST](https://medmnist.github.io/) is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen to evaluate both binary classification and multiclassification task. Each dataset was evaluated using three different networks:
+[MedMNIST](https://medmnist.github.io/) is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen, one for binary classification and one for multi-class classification.
+Each dataset was evaluated using three different networks:
 
 1. **Sample ConvNet** : A baseline convolutional neural network provided as part of the coursework.
 2. **Dense-Only Network** : A fully connected network without convolutional layers but with comparable total parameters to the baseline ConvNet.
@@ -31,7 +32,7 @@ The two chosen datasets were:
 2. OrganCMNIST for multi-class classification (predicting organ types).
 
 
-## Development
+## Part 1: Binary Classification of Pneumonia Images
 
 ### Baseline Convnet
 
