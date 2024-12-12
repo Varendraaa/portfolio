@@ -1,4 +1,4 @@
-baseURL = "https://vscodes.com/portfolio"
+baseURL = "https://vscodes.com/"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 languageCode = "en"
