@@ -1,11 +1,11 @@
-baseURL = "https://varendraaa.github.io/portfolio"
+baseURL = "https://vscodes.com/portfolio"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 languageCode = "en"
 
 pygmentsStyle = "monokai"
 theme = "gokarna"
-title = "Varendra's Dev Corner"
+title = "VSCodes"
 
 [params] 
 
@@ -17,6 +17,36 @@ title = "Varendra's Dev Corner"
 
   showPostsOnHomePage = true
   numberPostsOnHomePage = 4
+
+  SkillsTitle = "My Skills"
+  AchievementsTitle = "Certifications and Achievements"
+
+  AboutTitle = "Hi There!"
+  AboutDescription = " I'm Varendra! I'm a fresh software developer with a focus on game and mobile app development. I'm currently interested in the applications of machine learning, and their implications on the development lifecycle. I'm also an ex-geophysicist, with over 5 years experience in seismic data intepretation and management. "
+  
+  AboutDetails = "In terms of some more things I enjoy, sometimes I like to go hiking and I list my trails that I explore on All Trails. Alongside that, here and there I compete within some driving games and stuff like that."
+
+  ProfileImage = "/portfolio/images/profile.png"
+
+  [[params.WorkExperience]]
+    position = "Geophysicist"
+    company = "Ministry of Energy and Energy Industries"
+    years = "2019–2023"
+
+  [[params.WorkExperience]]
+    position = "Technical Intern (Placement)"
+    company = "Touchstone Exploration Trinidad Ltd."
+    years = "2017–2018"
+
+  [params.DevStack]
+    stack = [
+        "C++,",
+        "C#,",
+        "Python,",
+        "HTML,",
+        "CSS,",
+        "JS"
+    ]
 
 
 [menu]

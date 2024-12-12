@@ -25,19 +25,17 @@
   </url><url>
     <loc>http://localhost:1313/portfolio/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/portfolio/index-about/</loc>
-  </url><url>
     <loc>http://localhost:1313/portfolio/projects/api-mashup/</loc>
   </url><url>
     <loc>http://localhost:1313/portfolio/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/portfolio/projects/computer-vision/</loc>
   </url><url>
     <loc>http://localhost:1313/portfolio/projects/game-engine/</loc>
   </url><url>
     <loc>http://localhost:1313/portfolio/tags/keras/</loc>
   </url><url>
     <loc>http://localhost:1313/portfolio/tags/machine-learning/</loc>
-  </url><url>
-    <loc>http://localhost:1313/portfolio/projects/pneumonia-detection/</loc>
   </url><url>
     <loc>http://localhost:1313/portfolio/projects/</loc>
   </url><url>

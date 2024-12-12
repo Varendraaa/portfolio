@@ -1,6 +1,7 @@
 ---
-title: Pneumonia Detection
+title: Computer Vision using Deep Learning
 type: page
+image: "/portfolio/images/projects/Computer-Vision/Pneumonia-1.png"
 tags: ["Machine Learning", "Keras", "Python"]
 showTableOfContents: true
 ---
@@ -12,14 +13,12 @@ This project, undertaken as part of Machine Learning Module at the University of
 
 ## Background
 
-[MedMNIST](https://medmnist.github.io/) is a collection of 10 datasets of 28x28 pixel images. For this project, two different datasets were chosen, one for binary classification and one for multi-class classification.
+[MedMNIST](https://medmnist.github.io/) is a collection of 10 datasets of 28x28 pixel medical images. For this project, two different datasets were chosen, one for binary classification and one for multi-class classification.
 Each dataset was evaluated using three different networks:
 
 1. **Sample ConvNet** : A baseline convolutional neural network provided as part of the coursework.
 2. **Dense-Only Network** : A fully connected network without convolutional layers but with comparable total parameters to the baseline ConvNet.
 3. **Custom ConvNet** : A self-designed deep neural network incorporating advanced design principles, regularization methods, and data augmentation to optimize performance.
-
-## Setup
 
 The networks were built using Google Colab for a couple reasons:
 
@@ -36,8 +35,9 @@ The two chosen datasets were:
 
 ### Baseline Convnet
 
-First, I looked at the sample covnet provided by the University, which resulted in the following parameter setup:
-
+First, I looked at the sample covnet provided by the University, which consisted of the following architecture:
+- Two convolutional layers with ReLU activation and max pooling.
+- A dense output layer with a softmax activation function.
 - Total params: 18379 
 - Trainable params: 18379
 
@@ -59,19 +59,21 @@ model_1.summary()
 
 ```
 
-The model was compiled using stochastic gradient descent (SGD) with a learning rate of 0.001 and evaluated using categorical cross-entropy loss.
+The model was compiled using stochastic gradient descent (SGD) with a learning rate of 0.001 and evaluated using binary cross-entropy loss.
 
 ``` s
 model_1.compile(optimizer=keras.optimizers.SGD(learning_rate=0.001),
-              loss='categorical_crossentropy',
+              loss='binary_crossentropy',
               metrics=['accuracy'])
 ```
 
 // Add  Results  here
 
+
+
 ### Dense Network (Without Convolutions)
 
-To test the importance of spatial feature extraction, a dense-only network was implemented. This network replaced convolutional layers with fully connected layers, while keeping the total parameter count similar to the ConvNet.
+To look at the importance of spatial feature extraction, a dense-only network was also tested. This network replaced convolutional layers with fully connected layers, while keeping the total parameter count similar to the ConvNet.
 
 Architecture Details:
 1. Input images were flattened into 1D arrays.
@@ -82,12 +84,12 @@ Architecture Details:
 from keras import layers, models
 
 model_dense = models.Sequential()
-model_dense.add(layers.Flatten(input_shape=(28, 28, 1)))  # Flattening the image
+model_dense.add(layers.Flatten(input_shape=(28, 28, 1)))    # Flattening the image
 model_dense.add(layers.Dense(128, activation='relu'))
-model_dense.add(layers.Dropout(0.3))  # Regularization
+model_dense.add(layers.Dropout(0.3))                        # Regularization
 model_dense.add(layers.Dense(64, activation='relu'))
 model_dense.add(layers.Dropout(0.3))
-model_dense.add(layers.Dense(1, activation='sigmoid'))  # Sigmoid activation
+model_dense.add(layers.Dense(1, activation='sigmoid'))      # Sigmoid activation
 
 model_dense.compile(optimizer='adam',
                     loss='binary_crossentropy',
@@ -95,13 +97,17 @@ model_dense.compile(optimizer='adam',
 
 ```
 
+// Add results here
+
+
+
 Challenges Observed:
 
-Dense networks struggled to capture spatial patterns in the images, resulting in lower performance compared to ConvNets.
-Dropout regularization improved generalization but did not fully bridge the performance gap.
+- Dense networks struggled to capture spatial patterns in the images, resulting in lower performance compared to ConvNets.
+- Dropout regularization improved generalization but did not fully bridge the performance gap.
 
 Key Insights:
-Dense layers alone lack the ability to identify localized features, highlighting the importance of convolutions for tasks involving image data.
+- Dense layers alone lack the ability to identify localized features, highlighting the importance of convolutions for tasks involving image data.
 
 
 ### Custom Convnet
@@ -149,8 +155,8 @@ The custom ConvNet achieved the best performance among the three models, with si
 
 Key Design Takeaways:
 
-Batch normalization and dropout worked synergistically to stabilize training and reduce overfitting.
-Data augmentation allowed the model to learn more robust representations.
+- Batch normalization and dropout worked synergistically to stabilize training and reduce overfitting.
+- Data augmentation allowed the model to learn more robust representations.
 
 
 ## Part 2: Multi-Class classification of Organ Images
@@ -158,6 +164,10 @@ Data augmentation allowed the model to learn more robust representations.
 
 ### Baseline ConvNet
 The baseline ConvNet, adapted for multi-class classification, consisted of two convolutional layers followed by a softmax-activated dense output layer for probability distributions.
+- Two convolutional layers with ReLU activation and max-pooling.
+- A dense output layer with softmax activation for multi-class probability distributions.
+- Total parameters: 18,379
+
 
 ```s
 model_1 = models.Sequential()
@@ -176,9 +186,15 @@ model_1.compile(optimizer='adam',
 
 ```
 
+// Add results here
+
 
 ### Dense Network (Without Convolutions)
 For multi-class classification, the dense network used three fully connected layers with dropout for regularization.
+
+- Three fully connected layers with 128, 64, and 32 neurons, respectively.
+- Dropout layers for regularization.
+- Softmax activation in the output layer to produce class probabilities.
 
 ```s
 
@@ -198,11 +214,13 @@ model_dense.compile(optimizer='adam',
 ```
 
 
+// Add results here
+
 ### Custom ConvNet
 The custom ConvNet was enhanced for multi-class classification by:
 
-Increased Depth: Added a third convolutional layer for deeper feature extraction.
-Regularization: Introduced higher dropout rates and learning rate scheduling
+- Increased Depth: Added a third convolutional layer for deeper feature extraction.
+- Regularization: Introduced higher dropout rates and learning rate scheduling
 
 
 ```s
@@ -233,7 +251,7 @@ model_custom.compile(optimizer='adam',
 
 ```
 
-
+// Add results here
 
 Key Insights
 1. ConvNets Perform Better: Convolutional layers consistently outperformed dense-only networks in image-based tasks.
