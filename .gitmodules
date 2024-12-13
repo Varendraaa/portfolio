@@ -1,0 +1,3 @@
+[submodule "themes/custom-gokarna"]
+    path = themes/custom-gokarna
+    url = <some URL>
