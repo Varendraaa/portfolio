@@ -4,7 +4,7 @@ enableRobotsTXT = true
 languageCode = "en"
 
 pygmentsStyle = "monokai"
-theme = "gokarna"
+theme = "custom-gokarna"
 title = "VSCodes"
 
 [params] 
