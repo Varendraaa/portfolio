@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on VSCodes</title>
-    <link>http://localhost:1313/portfolio/projects/</link>
+    <link>https://varendraaa.github.io/projects/</link>
     <description>Recent content in Projects on VSCodes</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/portfolio/projects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://varendraaa.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>API Mashup</title>
-      <link>http://localhost:1313/portfolio/projects/api-mashup/</link>
+      <link>https://varendraaa.github.io/projects/api-mashup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/projects/api-mashup/</guid>
+      <guid>https://varendraaa.github.io/projects/api-mashup/</guid>
       <description>&lt;p&gt;&lt;em&gt;A web app that combines two APIs to make a useful application&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;see-the-app-herehttpsvarendraaagithubioweather-app-api-mashup&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://varendraaa.github.io/Weather-App-API-Mashup/&#34;&gt;See the app here&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;&#xA;&lt;p&gt;This was my second assignment for my Web Development Module at the University of Dundee.&#xA;It&amp;rsquo;s written using HTML, CSS and Javascript, with support from JQuery and Material Design Bootstrap.&#xA;It was my first time working with Javascript and the JSON notation, and was developed over a period of 4 weeks.&lt;/p&gt;&#xA;&lt;p&gt;It uses two API&amp;rsquo;s for its functionality:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Computer Vision using Deep Learning</title>
-      <link>http://localhost:1313/portfolio/projects/computer-vision/</link>
+      <link>https://varendraaa.github.io/projects/computer-vision/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/projects/computer-vision/</guid>
+      <guid>https://varendraaa.github.io/projects/computer-vision/</guid>
       <description>&lt;h1 id=&#34;about&#34;&gt;About&lt;/h1&gt;&#xA;&lt;p&gt;This project, undertaken as part of Machine Learning Module at the University of Dundee, focuses on using deep learning to classify medical images. It evaluates the performance of the neural network architectures across binary and multi-class classification tasks, showcasing the potential of machine learning in healthcare applications.&lt;/p&gt;&#xA;&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://medmnist.github.io/&#34;&gt;MedMNIST&lt;/a&gt; is a collection of 10 datasets of 28x28 pixel medical images. For this project, two different datasets were chosen, one for binary classification and one for multi-class classification.&#xA;Each dataset was evaluated using three different networks:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Creating a Doom-like C&#43;&#43; Game from scratch, using OpenGL</title>
-      <link>http://localhost:1313/portfolio/projects/game-engine/</link>
+      <link>https://varendraaa.github.io/projects/game-engine/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/portfolio/projects/game-engine/</guid>
+      <guid>https://varendraaa.github.io/projects/game-engine/</guid>
       <description>&lt;p&gt;I might do a longer post on how I developed this project on LinkedIn Articles, since it might be quite long for this page.&lt;/p&gt;</description>
     </item>
   </channel>
