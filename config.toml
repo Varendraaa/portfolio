@@ -13,7 +13,7 @@ title = "VSCodes"
   avatarAltText = "avatar"
   avatarSize = "size-l"
   avatarURL = "/portfolio/images/profile.png"
-  # description = "Hiya, I'm Varendra, a new software developer focused on game and app development."
+  # description = "Hi, I'm Varendra, a new software developer focused on game and app development."
 
   showPostsOnHomePage = true
   numberPostsOnHomePage = 4
